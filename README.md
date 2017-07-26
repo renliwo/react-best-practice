@@ -121,15 +121,16 @@ data.map((x, i) => <Hello key={i}>x</Hello>);
 # 7.方法
 
 7.1【建议】按照以下顺序排序内部方法。
-
+```
 1. static methods and properties
 2. lifecycle methods: displayName, propTypes, contextTypes, childContextTypes, mixins, statics,defaultProps, constructor, getDefaultProps, getInitialState, state, getChildContext, componentWillMount, componentDidMount, componentWillReceiveProps, shouldComponentUpdate, componentWillUpdate, componentDidUpdate, componentWillUnmount (in this order).
 3. custom methods
 4. render method`
+```
 
 
 7.2【建议】不要在componentDidMount以及componentDidUpdate中调用setState，除非是在绑定的回调函数中设置State。
-
+```js
 // bad
 class Hello extends Component {
   componentDidMount() {
@@ -155,9 +156,10 @@ class Hello extends Component {
     return <div>Hello {this.state.name}</div>;
   }
 }
+```
 
 7.3【建议】使用箭头函数来获取本地变量。
-
+```js
 function ItemList(props) {
   return (
     <ul>
@@ -170,6 +172,7 @@ function ItemList(props) {
     </ul>
   );
 }
+```
 
 
 
