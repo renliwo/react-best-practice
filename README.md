@@ -84,6 +84,43 @@ class A extends Component {
 
 # 5.命名
 
+> There are only two hard things in Computer Science: cache invalidation and naming things.-- Phil Karlton
+
+5.1 【强制】react组件文件命名后缀为jsx，普通js文件为 js
+
+5.2 【强制】组件的命名采用UpperCamel
+
+```js
+
+class Upload extends Component {}
+or 
+const Image = ({ success, src }) => {}
+```
+5.3 【推荐】命名要有意义，符合行业规范。
+
+```
+// good
+priceCountReader      // No abbreviation.
+numErrors             // "num" is a widespread convention.
+numDnsConnections     // Most people know what "DNS" stands for.
+
+// bad
+nErr                  // Ambiguous abbreviation.
+nCompConns            // Ambiguous abbreviation.
+wgcConnections        // Only your group knows what this stands for.
+pcReader              // Lots of things can be abbreviated "pc".
+cstmrId               // Deletes internal letters.
+kSecondsPerDay        // Do not use Hungarian notation.
+```
+
+5.4 【推荐】不要使用中国化的命名方式，注意相近词汇的使用场景。
+
+```js
+// bad
+const educationCredential
+// good
+const postgraduateCertificate
+```
 
 # 6.属性
 
