@@ -23,7 +23,7 @@ class Listing extends React.Component {
   }
 }
 ```
-2.2 没有内部状态，方法或者是无需对外暴露ref的组件，使用函数写法。
+2.2 【推荐】没有内部状态，方法或者是无需对外暴露ref的组件，使用函数写法。
 
 ```js
 // bad
@@ -40,7 +40,7 @@ const Listing = ({ hello }) => (
 ```
 # 3.PropTypes/DefaultProps
 
-3.1 有状态组件，使用ES7类静态属性提案写法。
+3.1 【强制】有状态组件，使用ES7类静态属性提案写法。
 
 ```js
 static defaultProps = {
@@ -58,7 +58,7 @@ static defaultProps = {
     }).isRequired
   };
 ```
-3.2 无状态组件，使用类静态属性写法。
+3.2 【强制】无状态组件，使用类静态属性写法。
 ```js
 Icon.defaultProps = {
   type: ""
@@ -68,11 +68,11 @@ Icon.propTypes = {
   style: PropTypes.object
 };
 ```
-3.3 PropTypes必须。
+3.3 【强制】PropTypes必须。
 
 # 4.DisplayName
 
-【建议】为了调试方便，建议在组件最上面写displayName。
+【推荐】为了调试方便，建议在组件最上面写displayName。
 ```js
 // good
 class A extends Component {
@@ -157,7 +157,7 @@ data.map((x, i) => <Hello key={i}>x</Hello>);
 
 # 7.方法
 
-7.1【建议】按照以下顺序排序内部方法。
+7.1【推荐】按照以下顺序排序内部方法。
 ```
 1. static methods and properties
 2. lifecycle methods: displayName, propTypes, contextTypes, childContextTypes, mixins, statics,defaultProps, constructor, getDefaultProps, getInitialState, state, getChildContext, componentWillMount, componentDidMount, componentWillReceiveProps, shouldComponentUpdate, componentWillUpdate, componentDidUpdate, componentWillUnmount (in this order).
@@ -166,7 +166,7 @@ data.map((x, i) => <Hello key={i}>x</Hello>);
 ```
 
 
-7.2【建议】不要在componentDidMount以及componentDidUpdate中调用setState，除非是在绑定的回调函数中设置State。
+7.2【推荐】不要在componentDidMount以及componentDidUpdate中调用setState，除非是在绑定的回调函数中设置State。
 ```js
 // bad
 class Hello extends Component {
@@ -195,7 +195,7 @@ class Hello extends Component {
 }
 ```
 
-7.3【建议】使用箭头函数来获取本地变量。
+7.3【推荐】使用箭头函数来获取本地变量。
 ```js
 function ItemList(props) {
   return (
@@ -213,7 +213,7 @@ function ItemList(props) {
 
 
 
-7.4【建议】在React模块中，不要给所谓的私有函数添加_前缀，本质上它并不是私有的。
+7.4【推荐】在React模块中，不要给所谓的私有函数添加_前缀，本质上它并不是私有的。
 
 解释：_下划线前缀在某些语言中通常被用来表示私有变量或者函数。但是不像其他的一些语言，在JS中没有原生支持所谓的私有变量，所有的变量函数都是共有的。尽管你的意图是使它私有化，在之前加上下划线并不会使这些变量私有化，并且所有的属性（包括有下划线前缀及没有前缀的）都应该被视为是共有的。
 
